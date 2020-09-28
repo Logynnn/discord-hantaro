@@ -1,0 +1,29 @@
+{
+  "name": "discord-hantaro",
+  "version": "0.1.1-alpha",
+  "description": "Another multiporpose Discord Bot, with many funtions to boost your server!",
+  "main": "./client/index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discordbot",
+    "discordhantaro",
+    "discord.hantaro",
+    "discord-hantaro",
+    "discord",
+    "hantarobot",
+    "hantaro.bot",
+    "hantarodiscord",
+    "hantarojs"
+  ],
+  "author": "Logynnn",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "fs": "0.0.1-security",
+    "mongoose": "^5.10.7",
+    "path": "^0.12.7"
+  }
+}
