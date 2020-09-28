@@ -8,23 +8,21 @@ module.exports = class AvatarCommand extends Command {
         });
     }
 
-    async run({ message, argsAlt }) {
-        let target = argsAlt[0] ?
-            message.mentions.users.first ||
-                this.client.users.cache.find(
-                    user => user.username.toLowerCase() == argsAlt.join(' ').toLowerCase() ||
-                        user.tag.toLowerCase() == argsAlt.join(' ').toLowerCase()
-                ) ||
-                message.guild.members.cache.find(
-                    user => user.displayName.toLowerCase().includes(argsAlt.join(' ').toLowerCase())
-                ) ||
-                await this.client.users.fetch(argsAlt[0]).catch(console.error) || message.author
-            : message.author;
-        target = target.user ? target.user : target;
+    async run({ message, args }) {
+        let target = message.mentions.users.first() ||
+        message.guild.members.cache.find(
+          x => x.displayName.toLowerCase() === args.join(" ").toLowerCase()
+        ) ||
+        message.guild.members.cache.find(
+          x => x.user.username.toLowerCase() === args.join(" ").toLowerCase()
+        ) ||
+        message.guild.members.cache.get(args[0]) ||
+        message.author;
+      target = target.user == undefined ? target : target.user;
 
         return message.channel.send({
             embed: {
-                color: this.client.config.defaultColor,
+                color: '#433B67',
                 image: {
                     url: target.displayAvatarURL({ format: 'png', size: 1024 })
                 },
