@@ -4,4 +4,4 @@ const Hantaro = new Client({
     prefix: require('../util/Assets/Config').prefix
 });
 
-Hantaro.login('NzAyMDIwMTIwMjI2MTY4ODky.Xp59Lw.MJa3o3pY5KpuBT4c_AC9T6EDC94');
+Hantaro.login(require('../private').token);
