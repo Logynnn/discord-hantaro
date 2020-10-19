@@ -1,15 +1,23 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-module.exports = new Schema({
-    _id: {
-        type: String
+const UserSchema = new Schema({
+    _id: Schema.Types.ObjectId,
+    userID: {
+        type: String,
+        default: null
     },
-    roles: {
-        type: Array,
-        default: [] // ['owner', 'developers', 'especials']
+    guildID: {
+        type: String,
+        default: null
     },
-    rep: {
-        type: Map,
-        default: { total: 0, last: 0 }
+    xp: {
+        type: Number,
+        default: 0,
+    },
+    level: {
+        type: Number,
+        default: 0,
     }
 });
+
+// module.exports = model('Users', UserSchema, 'users');

@@ -4,7 +4,7 @@ module.exports = class PingCommand extends Command {
     constructor(client) {
         super(client, {
             command: 'ping',
-            aliases: ['ping']
+            aliases: ['latency']
         });
     }
 

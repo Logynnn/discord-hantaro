@@ -1,15 +1,10 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-module.exports = new Schema({
-    _id: {
-        type: String
-    },
-    prefix: {
-        type: String,
-        default: require('../Assets/Config').prefix
-    },
-    lang: {
-        type: String,
-        default: 'ptBR'
-    }
+const GuildSchema = Schema({
+    _id: Schema.Types.ObjectId,
+    guildID: String,
+    guildName: String,
+    prefix: String
 });
+
+module.exports = model('Guild', GuildSchema, 'guilds');
